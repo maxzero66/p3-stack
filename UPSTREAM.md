@@ -3,7 +3,7 @@
 upstream: https://github.com/cursor/plugins
 subtree: pstack/
 pin: 9e278fe4d4ecd8bfe98b1b79bf4be662efb338cc
-pin-date: 2026-11-23
+pin-date: 2026-11-24
 pin-version: 0.15.48
 synced-on: 2026-11-24
 sync-target: 9e278fe4d4ecd8bfe98b1b79bf4be662efb338cc
