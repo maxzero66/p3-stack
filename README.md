@@ -1,6 +1,6 @@
 # p3-stack
 
-p3-stack is [pstack](https://github.com/cursor/plugins/tree/main/pstack) rebuilt for T3 Code, synced to upstream `bf0c7cd` (see [UPSTREAM.md](UPSTREAM.md)). Same engineering discipline, native T3 orchestration.
+p3-stack is [pstack](https://github.com/cursor/plugins/tree/main/pstack) rebuilt for T3 Code, synced to upstream `9e278fe` (see [UPSTREAM.md](UPSTREAM.md)). Same engineering discipline, native T3 orchestration.
 
 pstack is poteto's answer to AI slop code. It turns an agent into an engineering team: one mode skill that routes to playbooks, principles that ground every decision, and verification strict enough that you can parallelize with confidence. p3-stack keeps that system and rewires the mechanics to T3 Code's primitives:
 
@@ -39,7 +39,7 @@ list, or set it empty to fall back to auto-detection.
 
 A name that is already taken is skipped and reported, never deleted or replaced. A name counts as p3-stack's only when it is a symlink into this repo. Codex reads `~/.tcodex/skills/`, `~/.codex/skills/`, and `$CODEX_HOME/skills/` beside `~/.agents/skills/`, so a name taken in any of those is skipped too. `--replace <name>` takes one over and prints what it pointed at first. `--target <dir>` installs somewhere else, `--project /path/to/repo` installs into `<repo>/.agents/skills/` and `<repo>/.claude/skills/`, `--uninstall` removes only the links that point into this repo, and `--dry-run` prints the plan with no changes.
 
-Skills are symlinked. Their `../<name>` and `../../agents/` references hold once the link is resolved to its real path, which `p3-mode` tells the agent to do, so they land in this repo's own `skills/` and `agents/` even when the install directory has a different skill under the same name; nothing else needs linking. Read literally from the install directory, they do not. Rerunning `./install.sh` after a pull or a move is safe: it repoints links from another p3-stack checkout that still exists and prunes links to skills that no longer exist. `install.sh` takes no GNU-only flags and runs on macOS as well as Linux. `p3-mode/scripts/check-plan.mjs` needs Node 20.11 or newer.
+Skills are symlinked. Their `../<name>` and `../../agents/` references hold once the link is resolved to its real path, which `p3-mode` tells the agent to do, so they land in this repo's own `skills/` and `agents/` even when the install directory has a different skill under the same name; nothing else needs linking. Read literally from the install directory, they do not. Rerunning `./install.sh` after a pull or a move is safe: it repoints links from another p3-stack checkout that still exists and prunes links to skills that no longer exist. `install.sh` takes no GNU-only flags and runs on macOS as well as Linux.
 
 ## Get started
 

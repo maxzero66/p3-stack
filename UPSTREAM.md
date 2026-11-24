@@ -2,81 +2,81 @@
 
 upstream: https://github.com/cursor/plugins
 subtree: pstack/
-pin: bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7
-pin-date: 2026-11-15
-pin-version: 0.15.42
-synced-on: 2026-11-16
+pin: 9e278fe4d4ecd8bfe98b1b79bf4be662efb338cc
+pin-date: 2026-11-23
+pin-version: 0.15.48
+synced-on: 2026-11-24
 sync-target: 9e278fe4d4ecd8bfe98b1b79bf4be662efb338cc
 sync-spec: docs/sync-spec-9e278fe.md
 
-`pin` 取「上游 main 上最后一个动过 subtree 的 commit」，不取仓库 HEAD。同步进行中 `pin` 取各行「对齐到」的最小值，全部对齐后才前进到 `sync-target`。本轮目标是 `9e278fe`（0.15.48，2026-11-23）：批 1（statechart 修复、`/reframe`）与批 2（principle、unslop、technical-writing 瘦身）已于 2026-11-24 落地，批 3（reflect、多阶段计划、architect）待定，故 `pin` 仍是 `bf0c7cd`。
+`pin` 取「上游 main 上最后一个动过 subtree 的 commit」，不取仓库 HEAD。同步进行中 `pin` 取各行「对齐到」的最小值，全部对齐后才前进到 `sync-target`。本轮已于 2026-11-24 对齐到 `9e278fe`（0.15.48）：批 1 为 statechart 修复与 `/reframe`，批 2 为 principle、unslop、technical-writing 瘦身，批 3 为 reflect 单文件化、多阶段计划砍成 5 步并删 `check-plan.mjs`、architect 砍成两段。默认模型与角色预算按既定策略跳过。
 `scripts/upstream-diff.sh` 与 `scripts/parity-check.sh` 只读本文件：头部 `key: value` 加下面四张表（前三张是 spec §5.1 的固定表，第四张是 parity-check 的可选扩展）。状态取值：`ported`（已落地）、`pending`（已决定移植、未落地）、`gap`（有意缺口）、`p3-only`（p3 独有）。
 
 ## 映射
 
 | 上游 | p3 | 对齐到 | 状态 | 备注 |
 |---|---|---|---|---|
-| skills/architect | skills/architect | bf0c7cd | ported |  |
+| skills/architect | skills/architect | 9e278fe | ported | 架构探索交给 arena，删 3 个 references |
 | skills/arena | skills/arena | 9e278fe | ported | 只改默认模型，按策略跳过 |
 | skills/automate-me | skills/automate-me | 9e278fe | ported | 只删 speed 措辞，p3 本无 |
 | skills/benchmark-checklist | skills/benchmark-checklist | 9e278fe | ported | 只删 Opening a PR 引用；p3 保留该 playbook |
-| skills/blast-radius | skills/blast-radius | bf0c7cd | ported |  |
-| skills/bro | skills/bro | bf0c7cd | ported |  |
-| skills/correct | skills/correct | bf0c7cd | ported |  |
-| skills/create-formal-verification-skill | skills/create-formal-verification-skill | bf0c7cd | ported | 新技能 |
-| skills/create-verification-skill | skills/create-verification-skill | bf0c7cd | ported |  |
+| skills/blast-radius | skills/blast-radius | 9e278fe | ported |  |
+| skills/bro | skills/bro | 9e278fe | ported |  |
+| skills/correct | skills/correct | 9e278fe | ported |  |
+| skills/create-formal-verification-skill | skills/create-formal-verification-skill | 9e278fe | ported | 新技能 |
+| skills/create-verification-skill | skills/create-verification-skill | 9e278fe | ported |  |
 | skills/figure-it-out | skills/figure-it-out | 9e278fe | ported | 只删 speed 措辞，p3 本无 |
-| skills/how | skills/how | bf0c7cd | ported |  |
-| skills/in-your-own-words | skills/in-your-own-words | bf0c7cd | ported | 新技能 |
-| skills/interrogate | skills/interrogate | bf0c7cd | ported |  |
-| skills/ketchup | skills/ketchup | bf0c7cd | ported | 新技能 |
-| skills/ketchup-video | skills/ketchup-video | bf0c7cd | ported | 新技能 |
-| skills/maintain-formal-verification-skill | skills/maintain-formal-verification-skill | bf0c7cd | ported | 新技能 |
-| skills/maintain-verification-skill | skills/maintain-verification-skill | bf0c7cd | ported |  |
-| skills/make-bot-ui | skills/make-bot-ui | bf0c7cd | ported |  |
+| skills/how | skills/how | 9e278fe | ported |  |
+| skills/in-your-own-words | skills/in-your-own-words | 9e278fe | ported | 新技能 |
+| skills/interrogate | skills/interrogate | 9e278fe | ported |  |
+| skills/ketchup | skills/ketchup | 9e278fe | ported | 新技能 |
+| skills/ketchup-video | skills/ketchup-video | 9e278fe | ported | 新技能 |
+| skills/maintain-formal-verification-skill | skills/maintain-formal-verification-skill | 9e278fe | ported | 新技能 |
+| skills/maintain-verification-skill | skills/maintain-verification-skill | 9e278fe | ported |  |
+| skills/make-bot-ui | skills/make-bot-ui | 9e278fe | ported |  |
 | skills/no-comments | skills/no-comments | 9e278fe | ported | 只删 speed 措辞，p3 本无 |
-| skills/poteto-help | skills/p3-help | bf0c7cd | ported | 改名 |
-| skills/poteto-mode | skills/p3-mode | bf0c7cd | ported | 改名 |
+| skills/poteto-help | skills/p3-help | 9e278fe | ported | 改名；保留 Orchestrate close call，因为 p3 保留该 playbook |
+| skills/poteto-mode | skills/p3-mode | 9e278fe | ported | 改名；T3 改写，orchestrate 与 worker.md 的处理见有意缺口 |
 | skills/principle-attack-the-premise | skills/principle-attack-the-premise | 9e278fe | ported |  |
 | skills/principle-boundary-discipline | skills/principle-boundary-discipline | 9e278fe | ported |  |
 | skills/principle-build-the-lever | skills/principle-build-the-lever | 9e278fe | ported |  |
-| skills/principle-encode-lessons-in-structure | skills/principle-encode-lessons-in-structure | bf0c7cd | ported |  |
-| skills/principle-exhaust-the-design-space | skills/principle-exhaust-the-design-space | bf0c7cd | ported |  |
-| skills/principle-experience-first | skills/principle-experience-first | bf0c7cd | ported |  |
+| skills/principle-encode-lessons-in-structure | skills/principle-encode-lessons-in-structure | 9e278fe | ported |  |
+| skills/principle-exhaust-the-design-space | skills/principle-exhaust-the-design-space | 9e278fe | ported |  |
+| skills/principle-experience-first | skills/principle-experience-first | 9e278fe | ported |  |
 | skills/principle-explain-the-number | skills/principle-explain-the-number | 9e278fe | ported |  |
 | skills/principle-fix-root-causes | skills/principle-fix-root-causes | 9e278fe | ported |  |
 | skills/principle-foundational-thinking | skills/principle-foundational-thinking | 9e278fe | ported |  |
-| skills/principle-guard-the-context-window | skills/principle-guard-the-context-window | bf0c7cd | ported | description 保留 delegated tasks 用词 |
-| skills/principle-laziness-protocol | skills/principle-laziness-protocol | bf0c7cd | ported |  |
+| skills/principle-guard-the-context-window | skills/principle-guard-the-context-window | 9e278fe | ported | description 保留 delegated tasks 用词 |
+| skills/principle-laziness-protocol | skills/principle-laziness-protocol | 9e278fe | ported |  |
 | skills/principle-make-operations-idempotent | skills/principle-make-operations-idempotent | 9e278fe | ported |  |
-| skills/principle-migrate-callers-then-delete-legacy-apis | skills/principle-migrate-callers-then-delete-legacy-apis | bf0c7cd | ported |  |
+| skills/principle-migrate-callers-then-delete-legacy-apis | skills/principle-migrate-callers-then-delete-legacy-apis | 9e278fe | ported |  |
 | skills/principle-minimize-reader-load | skills/principle-minimize-reader-load | 9e278fe | ported |  |
 | skills/principle-model-the-domain | skills/principle-model-the-domain | 9e278fe | ported |  |
-| skills/principle-never-block-on-the-human | skills/principle-never-block-on-the-human | bf0c7cd | ported |  |
-| skills/principle-outcome-oriented-execution | skills/principle-outcome-oriented-execution | bf0c7cd | ported |  |
+| skills/principle-never-block-on-the-human | skills/principle-never-block-on-the-human | 9e278fe | ported |  |
+| skills/principle-outcome-oriented-execution | skills/principle-outcome-oriented-execution | 9e278fe | ported |  |
 | skills/principle-prove-it-works | skills/principle-prove-it-works | 9e278fe | ported |  |
-| skills/principle-redesign-from-first-principles | skills/principle-redesign-from-first-principles | bf0c7cd | ported |  |
+| skills/principle-redesign-from-first-principles | skills/principle-redesign-from-first-principles | 9e278fe | ported |  |
 | skills/principle-separate-before-serializing-shared-state | skills/principle-separate-before-serializing-shared-state | 9e278fe | ported |  |
 | skills/principle-sequence-verifiable-units | skills/principle-sequence-verifiable-units | 9e278fe | ported |  |
-| skills/principle-subtract-before-you-add | skills/principle-subtract-before-you-add | bf0c7cd | ported |  |
+| skills/principle-subtract-before-you-add | skills/principle-subtract-before-you-add | 9e278fe | ported |  |
 | skills/principle-test-behavior-not-implementation | skills/principle-test-behavior-not-implementation | 9e278fe | ported |  |
 | skills/principle-type-system-discipline | skills/principle-type-system-discipline | 9e278fe | ported |  |
 | skills/recall | skills/recall | 9e278fe | ported | 只删 speed 措辞，p3 本无 |
 | skills/reframe | skills/reframe | 9e278fe | ported | 新技能 |
-| skills/reflect | skills/reflect | bf0c7cd | ported |  |
-| skills/setup-pstack | skills/setup-p3 | bf0c7cd | ported | 改名 |
-| skills/sharpen | skills/sharpen | bf0c7cd | ported | 新技能 |
+| skills/reflect | skills/reflect | 9e278fe | ported | 单文件、无子 agent；改读 t3_thread_read |
+| skills/setup-pstack | skills/setup-p3 | 9e278fe | ported | 改名；角色退役跟进，默认模型与预算档位按策略跳过 |
+| skills/sharpen | skills/sharpen | 9e278fe | ported | 新技能 |
 | skills/show-me-your-work | skills/show-me-your-work | 9e278fe | ported | 改成 another vendor，p3 的 family 语义已等价 |
 | skills/statechart | skills/statechart | 9e278fe | ported | 新技能 |
 | skills/swarm | skills/swarm | 9e278fe | ported | 只删 speed 措辞，p3 本无 |
-| skills/tdd | skills/tdd | bf0c7cd | ported |  |
-| skills/teach | skills/teach | bf0c7cd | ported |  |
+| skills/tdd | skills/tdd | 9e278fe | ported |  |
+| skills/teach | skills/teach | 9e278fe | ported |  |
 | skills/technical-writing | skills/technical-writing | 9e278fe | ported |  |
-| skills/typescript-best-practices | skills/typescript-best-practices | bf0c7cd | ported | 保留 p3 去掉的 paths: frontmatter 字段 |
+| skills/typescript-best-practices | skills/typescript-best-practices | 9e278fe | ported | 保留 p3 去掉的 paths: frontmatter 字段 |
 | skills/unslop | skills/unslop | 9e278fe | ported |  |
-| skills/why | skills/why | bf0c7cd | ported |  |
+| skills/why | skills/why | 9e278fe | ported |  |
 | agents/poteto-agent.md | agents/p3-agent.md | 9e278fe | ported | 改名；只加 model 行，按默认模型策略跳过 |
-| agents/comment-sicko.md | agents/comment-sicko.md | bf0c7cd | ported | |
+| agents/comment-sicko.md | agents/comment-sicko.md | 9e278fe | ported | |
 | README.md | README.md | 9e278fe | ported | p3 README 已重写，只摘技能表语义 |
 
 ## 有意缺口与忽略路径
@@ -104,19 +104,13 @@ sync-spec: docs/sync-spec-9e278fe.md
 | P4 schedule | skills/p3-mode/playbooks/visual-parity.md | p3 改成事件唤醒，不再用定时 |
 | P2 | skills/p3-mode/playbooks/orchestrate.md | 上游 9e278fe 已删除，p3 保留为 p3 专属 |
 | P2 | skills/p3-mode/worker.md | 上游 9e278fe 新增；规则并入 agents/p3-agent.md，p3 不单独建文件 |
-| P2 | skills/architect/references/design-red-flags.md | 批 3 待定：上游 9e278fe 已删除，p3 暂留 |
-| P2 | skills/architect/references/rationale-template.md | 批 3 待定：上游 9e278fe 已删除，p3 暂留 |
-| P2 | skills/architect/references/runner-prompt.md | 批 3 待定：上游 9e278fe 已删除，p3 暂留 |
-| P2 | skills/reflect/references/divergent-reviewer.md | 批 3 待定：上游 9e278fe 已删除，p3 暂留 |
-| P2 | skills/reflect/references/judgment-reviewer.md | 批 3 待定：上游 9e278fe 已删除，p3 暂留 |
-| P2 | skills/reflect/references/synthesizer.md | 批 3 待定：上游 9e278fe 已删除，p3 暂留 |
-| P2 | skills/reflect/references/tooling-reviewer.md | 批 3 待定：上游 9e278fe 已删除，p3 暂留 |
 | P4 preview | skills/p3-help/SKILL.md | p3-help 没有 control-ui/cli 对应句；B3 改写时复核 |
 | P5 | agents/p3-agent.md | T3 改写最深，B3 重写首段 |
 | P5 | skills/make-bot-ui/SKILL.md | T3 改写最深（preview_*/device_* 取代 control-ui） |
 | P5 | skills/p3-mode/playbooks/babysit.md | T3 改写最深（watch_pull_request 事件唤醒） |
 | P5 | skills/p3-mode/playbooks/worktree-cleanup.md | T3 改写最深（git worktree/gh/t3_thread_search 取代审计脚本） |
 | P5 | skills/setup-p3/SKILL.md | T3 改写最深（角色表与 providerInstanceId 写法） |
+| P5 | skills/p3-mode/playbooks/opening-a-pr.md | T3 改写最深（link_pull_request 只登记、delegated children 不 watch） |
 | P6 | skills/setup-p3/SKILL.md | T3 侧有意加 disable-model-invocation |
 | P8 | agents/p3-agent.md | 基线已超出 |
 | P8 | skills/figure-it-out/SKILL.md | 基线已超出 |
@@ -126,6 +120,9 @@ sync-spec: docs/sync-spec-9e278fe.md
 | P8 | skills/p3-mode/playbooks/worktree-cleanup.md | +2 行：git worktree/gh/t3_thread_search 取代审计脚本 |
 | P8 | skills/statechart/SKILL.md | +1 行：`<skill dir>` 自解析；同一行补上原生 Windows 运行方式 |
 | P8 | skills/statechart/references/render.md | +1 行：T3 下用图片语法或 html_render 展示 SVG |
+| P8 | skills/p3-mode/SKILL.md | T3 改写最深（Subagents 的角色与 option 解析规则） |
+| P8 | skills/p3-mode/playbooks/babysit.md | T3 改写最深（watch_pull_request 事件唤醒） |
+| P8 | skills/p3-mode/playbooks/opening-a-pr.md | T3 改写最深（link_pull_request 与 worker 不 watch） |
 
 ## 逐字搬运
 
