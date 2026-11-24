@@ -16,7 +16,7 @@ Call `orchestrator_capabilities`. It lists a short set of the providers and mode
 
 ### 2. Load current state
 
-The roles are the labels shown in step 5. If `p3-models.md` already exists at the chosen location, read it and treat its `# budget` line and its role values as the current choices. Otherwise start from the defaults in step 3(b). A line whose role is not in step 5, such as `how critics`, is from a retired role. Drop it.
+The roles are the labels shown in step 5. If `p3-models.md` already exists at the chosen location, read it and treat its `# budget` line and its role values as the current choices. Otherwise start from the defaults in step 3(b). A line whose role is not in step 5, such as `how critics`, `architect runners`, or `reflect tooling`, is from a retired role. Drop it.
 
 ### 3. Budget, map, and confirm
 
@@ -27,11 +27,11 @@ The roles are the labels shown in step 5. If `p3-models.md` already exists at th
 - `medium — high reasoning`
 - `small — medium reasoning`
 
-**(b) Apply it.** Build the working table. On a fresh run, give code roles (`feature, refactoring`, `bug-fix`, `perf-issue`, `hillclimb`), the swarm role, and `reflect tooling` the fastest strong coding model detected. Give `judgment and prose`, `hardest tasks`, and the synthesizers the most capable model detected. Fill each panel role with one entry per distinct model family detected, up to two. A family comes from the model id (Claude, GPT, DeepSeek, GLM, Kimi), not from the provider that serves it. On a re-run, keep any role the user changed.
+**(b) Apply it.** Build the working table. On a fresh run, give code roles (`feature, refactoring`, `bug-fix`, `perf-issue`, `hillclimb`) and the swarm role the fastest strong coding model detected. Give `judgment and prose` and `hardest tasks` the most capable model detected. Fill each panel role with one entry per distinct model family detected, up to two. A family comes from the model id (Claude, GPT, DeepSeek, GLM, Kimi), not from the provider that serves it. On a re-run, keep any role the user changed.
 
 When the catalog exposes reasoning options for a model, set each real entry's effort option from the budget: `unlimited`, `large`, `medium`, and `small` take `max`, `xhigh`, `high`, or `medium`. The ladder is `max` > `xhigh` > `high` > `medium` > `low`. If the model does not expose the target, use the highest option at or below it, else mark the role as needing a choice. `inherit-parent` does not change. Under `unlimited`, a model whose top option is `xhigh` stays at `xhigh`. When the catalog exposes no reasoning options, map roles only and drop effort tokens; the budget label is still recorded. Speed does not follow the budget. For each real entry, read the model's speed option id from the catalog (`fastMode` or `serviceTier`; it follows the provider instance's driver, not the model family). Record that option's name as the entry's `speed`, or `n/a` when the model has none. The entry's default stays standard speed. The parent turns fast on at spawn time, only when someone is blocked right now, per the Subagents section of the **p3-mode** skill. With `n/a` the parent adjusts effort only.
 
-**(c) Show the roles and confirm.** Show every role with its model, marking any entry not in the detected set as needing a choice. Also list each line step 2 dropped. Ask whether to accept as-is or change specific roles, offering the detected models plus `inherit-parent` (the role runs on the parent thread's model, so omit the model in `delegate_task`) as the options. For panel roles (arena runners, architect runners, interrogate reviewers) the value is a list, and one `delegate_task` runs per entry, `inherit-parent` entries included, so the list length sets the count. `arena cross-judge pool` is also a list, but Arena runs one judge. It tries only values from a provider other than the parent's, in list order, so order it by preference. An `inherit-parent` value never judges. `swarm workers` is the default model for every worker unless a race or comparison assigns another model per arm.
+**(c) Show the roles and confirm.** Show every role with its model, marking any entry not in the detected set as needing a choice. Also list each line step 2 dropped. Ask whether to accept as-is or change specific roles, offering the detected models plus `inherit-parent` (the role runs on the parent thread's model, so omit the model in `delegate_task`) as the options. For panel roles (arena runners, interrogate reviewers) the value is a list, and one `delegate_task` runs per entry, `inherit-parent` entries included, so the list length sets the count. `arena cross-judge pool` is also a list, but Arena runs one judge. It tries only values from a provider other than the parent's, in list order, so order it by preference. An `inherit-parent` value never judges. `swarm workers` is the default model for every worker unless a race or comparison assigns another model per arm.
 
 ### 4. Validate
 
@@ -51,12 +51,9 @@ perf-issue: <entry>
 hillclimb: <entry>
 judgment and prose: <entry>
 hardest tasks: <entry>
-reflect tooling: <entry>
-reflect judgment, divergent, synthesizer: <entry>
 arena runners: <entry>; <entry>
 arena cross-judge pool: <entry>; <entry>
 swarm workers: <entry>
-architect runners: <entry>; <entry>
 interrogate reviewers: <entry>; <entry>
 ```
 
